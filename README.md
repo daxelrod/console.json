@@ -60,6 +60,17 @@ require('console.json')(null, 4);
 For exact meaning of these two arguments, see
 [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
+You can pass a function as a third argument to be used instead of `JSON.stringify`
+
+```js
+function jsonAngleBrackets(value, replacer, space) {
+  var result = JSON.stringify(value, replacer, space);
+  return '<' + result + '>';
+}
+require('console.json')(null, 4, jsonAngleBrackets);
+// Surrounds objects and arrays with angle brackets
+```
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014
